@@ -38,8 +38,8 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 }
 
 p { margin-top: 0;  }
-a { color: #1EAEDB; text-decoration: underline; }
-a:hover { color: #0FA0CE; cursor: pointer; }
+a { color: #248eff; text-decoration: underline; }
+a:hover { color: #035BBC; cursor: pointer; }
 
 .center-text { text-align: center; }
 
