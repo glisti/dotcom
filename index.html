@@ -1,13 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="favicon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <title>Garrett Listi</title>
 </head>
+
 <body>
-    <div class="header"></div>
-    <div class="body"></div>
+    <div id="main">
+        <div class="container center-text">
+            <img class="round-img" src="media/headshot.jpeg" alt="headshot">
+            <h3 class="name">Garrett Listi</h3>
+            <p>
+                <a href="mailto:me@garrettlisti.com">email</a> |
+                <a href="media/garrettlisti.resume.pdf">resume</a>
+            </p>
+            <br>
+            <p>
+                <a id="mantraLink">Software engineer</a> seeking a full time position in problem solving.
+            </p>
+        </div>
+    </div>
+    <div id="mantra">
+        <div class="container">
+            <a id="backLink">
+                back</a>
+            <br>
+            <br>
+            <p>Despite my degree and current work history, I believe that software engineering is a problem solving technique,
+                not the opportunity to write code. While I do have a passion for writing code, I believe that it should be
+                a last resort.
+            </p>
+            <br>
+            <p>When the time is right however, I enjoy writing clean, simple code that is pragmatic in approach.</p>
+            <br>
+            <p>Lately, my interests have been applying functional programming techniques where possible and in UX design and
+                communication, working through the best way to sketch and communicate a user experience or application flow.
+            </p>
+            <br>
+            <p>I enjoy learning and passionately insist on adapting to new technology instead of remaining focused on a single
+                framework.
+            </p>
+            <br>
+            <br>
+            <p>Have a project that you want to work on together?
+                <a href="mailto:me@garrettlisti.com">Let me know!</a>
+            </p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        (function ($, window) {
+            $(document).ready(function () {
+                var speed = 300;
+                window.history.pushState({ 'page': 'home' }, "home");
+                window.onpopstate = function (event) {
+                    if (event.state && event.state.page && event.state.page === 'home')
+                        $("#mantra").fadeOut(speed, function () {
+                            $("#main").fadeIn(speed);
+                        });
+
+                };
+                $("#mantraLink").click(function () {
+                    $("#main").fadeOut(speed, function () {
+                        window.history.pushState({ 'page': 'mantra' }, "", "mantra");
+                        $("#mantra").fadeIn(speed);
+                    });
+                });
+                $("#backLink").click(function () {
+                    window.history.back();
+                });
+            });
+        })(jQuery, window);
+    </script>
 </body>
+
 </html>
